@@ -4,26 +4,58 @@
       <div class="media">
         <div class="media-left">
           <figure class="image is-48x48">
-            <img v-bind:src="require('../../assets/images/1.jpg')" alt="Profile image" />
+            <img v-if="imgPath" :src="imgPath" alt="Profile image" />
+            <img
+              v-else
+              :src="require('../../assets/images/unknown.jpg')"
+              alt="Profile image"
+            />
           </figure>
         </div>
         <div class="media-content">
           <span class="is-pulled-right is-4 title favorite" data-contact-id="1">
-            <i class="@favoriteClass"></i>
+            <i class="fa-heart" :class="favorite ? 'fas' : 'far'"></i>
           </span>
-          <p class="title is-4">Max Mustermann</p>
-          <p class="subtitle is-6">max.mustermann@muster.de</p>
+          <p class="title is-4">{{ fullname }}</p>
+          <p v-if="email" class="subtitle is-6">{{ email }}</p>
         </div>
       </div>
 
       <div class="content">
-        <i class="fa fa-map-marked-alt"></i>
-        Musterstr. 11, 39292 Musterhausen<br />
-        <i class="fa fa-building"></i>
-        Mustermann AG<br />
-        <i class="fa fa-briefcase"></i>
-        Head of Controlling<br />
+        <span v-if="address"
+          ><i class="fa fa-map-marked-alt"></i> {{ address }}</span
+        ><br />
+        <span v-if="employer"
+          ><i class="fa fa-building"></i> {{ employer }}</span
+        ><br />
+        <span v-if="businessTitle"
+          ><i class="fa fa-briefcase"></i> {{ businessTitle }}</span
+        ><br />
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: [
+    "id",
+    "firstname",
+    "lastname",
+    "email",
+    "employer",
+    "businessTitle",
+    "address",
+    "imgPath",
+    "favorite"
+  ],
+  computed: {
+    fullname() {
+      return this.firstname + " " + this.lastname;
+    },
+  },
+  data() {
+    return {};
+  },
+};
+</script>

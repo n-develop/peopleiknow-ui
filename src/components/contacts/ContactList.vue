@@ -3,13 +3,7 @@
     id="people-feed"
     class="column is-4-desktop is-full-mobile feed hero is-fullheight"
   >
-    <contact-teaser></contact-teaser>
-    <contact-teaser></contact-teaser>
-    <contact-teaser></contact-teaser>
-    <contact-teaser></contact-teaser>
-    <contact-teaser></contact-teaser>
-    <contact-teaser></contact-teaser>
-    <contact-teaser></contact-teaser>
+    <contact-teaser v-for="teaser in contactTeaser" :key="teaser.id" v-bind="teaser"></contact-teaser>
   </div>
 </template>
 
@@ -29,20 +23,22 @@ export default {
           lastname: 'Mustermann',
           email: 'max@mustermann.de',
           employer: 'Mustermann AG',
+          address: 'Musterstr. 11, 39292 Musterhausen',
           businessTitle: 'Head of Controlling',
-          imgPath: '../../assets/images/1.jpg'
+          imgPath: require('../../assets/images/1.jpg')
         },
         {
           id: 2,
           firstname: 'Marianne',
           lastname: 'Mustermann',
           email: 'marianne@mustermann.de',
-          imgPath: '../../assets/images/2.jpg'
+          imgPath: require('../../assets/images/2.jpg')
         },
         {
           id: 3,
           firstname: 'John',
-          lastname: 'Smith'
+          lastname: 'Smith',
+          favorite: true
         },
         {
           id: 4,
