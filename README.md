@@ -1,24 +1,10 @@
-# pik-ui
+# People I Know-UI
 
-## Project setup
-```
-npm install
-```
+This project will be the new UI layer for "People I Know" (https://github.com/n-develop/peopleiknow).
+Right now, "People I Know" is a ASP.NET Core MVC application with the traditional views and some vanilla JavaScript.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This new Vue.js based project will be the new UI for "People I Know". 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+To get this project running, just run `npm install` and `npm run serve`.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+For production builds, `npm run build` is used.
