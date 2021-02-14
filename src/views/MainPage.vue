@@ -4,18 +4,21 @@
     <contact-list></contact-list>
     <contact-editor></contact-editor>
   </div>
+  <add-button></add-button>
 </template>
 
 <script>
 import ContactList from "../components/contacts/ContactList.vue";
 import ContactEditor from "../components/contacts/ContactEditor.vue";
 import TheNavigation from "../components/layout/TheNavigation.vue";
+import AddButton from "../components/contacts/AddButton.vue";
 
 export default {
   components: {
     ContactList,
     ContactEditor,
     TheNavigation,
+    AddButton,
   },
   provide() {
     return {
@@ -68,5 +71,11 @@ export default {
   margin-top: 0;
   margin-left: 0;
   margin-bottom: 0;
+}
+
+#add-button {
+    bottom: 10px;
+    right: 10px;
+    position: fixed;
 }
 </style>
